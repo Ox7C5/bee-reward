@@ -27,6 +27,8 @@ class CompanyGoal {
     timeout = null;       // Timeout in ticks before the goal becomes obsolete.
     reward = 0;    // reward for reached goal (makes this come closer to subsidies)
     subsidyfactor = GSController.GetSetting("subsidy_factor") * 20;
+    rewardfactor_town = GSController.GetSetting("rewardfactor_town");
+    rewardfactor_ind = GSController.GetSetting("rewardfactor_ind");
     		
     displayed_string = null;
     displayed_count = null;
@@ -51,11 +53,13 @@ class CompanyGoal {
                 destination_string = GSText(GSText.STR_TOWN_NAME, destination);
                 destination_string_news = GSText(GSText.STR_TOWN_NAME_NEWS, destination);
                 goal_type = GSGoal.GT_TOWN;
+                this.reward = this.reward * rewardfactor_town;
             } else {
                 destination = accept.ind;
                 destination_string = GSText(GSText.STR_INDUSTRY_NAME, destination);
                 destination_string_news = GSText(GSText.STR_INDUSTRY_NAME_NEWS, destination);
                 goal_type = GSGoal.GT_INDUSTRY;
+                this.reward = this.reward * rewardfactor_ind;
             }
             local goal_text, goal_news_text;
             if (this.reward > 0) {
@@ -524,6 +528,7 @@ function CompanyData::CheckAndFinishGoals()
         if (goal == null) continue;
         if (goal.CheckFinished()) {
             goal.FinalizeGoal();
+            GSCompany.ChangeBankBalance(this.comp_id, goal.reward, 0);
             this.active_goals[num] = null;
         }
     }

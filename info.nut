@@ -105,6 +105,26 @@ function BusyBeeInfo::GetSettings()
                        custom_value=0,
                        step_size=0.5,
                        flags=GSInfo.CONFIG_INGAME});
+    GSInfo.AddSetting({name="rewardfactor_town",
+                       description="Extra factor to be multiplied with reward for towns",
+                       min_value=0,
+                       max_value=2,
+                       easy_value=2,
+                       medium_value=1,
+                       hard_value=0,
+                       custom_value=0,
+                       step_size=0.1,
+                       flags=GSInfo.CONFIG_INGAME});
+    GSInfo.AddSetting({name="rewardfactor_ind",
+                       description="Extra factor to be multiplied with reward for industries",
+                       min_value=0,
+                       max_value=2,
+                       easy_value=2,
+                       medium_value=1,
+                       hard_value=0,
+                       custom_value=0,
+                       step_size=0.1,
+                       flags=GSInfo.CONFIG_INGAME});
 }
 
 RegisterGS(BusyBeeInfo());
