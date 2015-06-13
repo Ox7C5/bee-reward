@@ -1,18 +1,18 @@
 /*
- * This file is part of BusyBee, which is a GameScript for OpenTTD
- * Copyright (C) 2014-2015  alberth / andythenorth
+ * This file is part of BeeReward, which is a GameScript for OpenTTD
+ * Copyright (C) 2014-2015  alberth / andythenorth / jottyfan
  *
- * BusyBee is free software; you can redistribute it and/or modify it
+ * BeeReward is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 2 of the License
  *
- * BusyBee is distributed in the hope that it will be useful,
+ * BeeReward is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with BusyBee; If not, see <http://www.gnu.org/licenses/> or
+ * along with BeeReward; If not, see <http://www.gnu.org/licenses/> or
  * write to the Free Software Foundation, Inc., 51 Franklin Street,
  * Fifth Floor, Boston, MA 02110-1301 USA.
  */
@@ -24,13 +24,13 @@ PROGRAM_VERSION <- Syntax error, set by 'make bundle'.
 PROGRAM_DATE <- Syntax error, set by 'make bundle'.
 PROGRAM_NAME <- Syntax error, set by 'make bundle'.
 
-class BusyBeeInfo extends GSInfo {
-    function GetAuthor()        { return "alberth & andythenorth, reward by jottyfan"; }
+class BeeRewardInfo extends GSInfo {
+    function GetAuthor()        { return "alberth, andythenorth, jottyfan"; }
     function GetName()          { return "Bee Reward"; } // Old: return PROGRAM_NAME;
-    function GetDescription()   { return "Make connection, transport cargo, recieve reward"; }
+    function GetDescription()   { return "Make connection, transport cargo, receive reward"; }
     function GetVersion()       { return PROGRAM_VERSION + SAVEGAME_VERSION * 100000; }
     function GetDate()          { return PROGRAM_DATE; }
-    function CreateInstance()   { return "BusyBeeClass"; }
+    function CreateInstance()   { return "BeeRewardClass"; }
     function GetShortName()     { return "BREW"; }
     function GetAPIVersion()    { return "1.5"; }
     function GetUrl()           { return "http://dev.openttdcoop.org/projects/bee-awards"; }
@@ -38,7 +38,7 @@ class BusyBeeInfo extends GSInfo {
     function GetSettings();
 }
 
-function BusyBeeInfo::GetSettings()
+function BeeRewardInfo::GetSettings()
 {
     GSInfo.AddSetting({name="num_goals",
                        description="Number of goals for a company (1-10)",
@@ -127,4 +127,4 @@ function BusyBeeInfo::GetSettings()
                        flags=GSInfo.CONFIG_INGAME});
 }
 
-RegisterGS(BusyBeeInfo());
+RegisterGS(BeeRewardInfo());

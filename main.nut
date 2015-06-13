@@ -1,18 +1,18 @@
 /*
- * This file is part of BusyBee, which is a GameScript for OpenTTD
+ * This file is part of BeeReward, which is a GameScript for OpenTTD
  * Copyright (C) 2014-2015  alberth / andythenorth
  *
- * BusyBee is free software; you can redistribute it and/or modify it
+ * BeeReward is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
  * the Free Software Foundation; version 2 of the License
  *
- * BusyBee is distributed in the hope that it will be useful,
+ * BeeReward is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with BusyBee; If not, see <http://www.gnu.org/licenses/> or
+ * along with BeeReward; If not, see <http://www.gnu.org/licenses/> or
  * write to the Free Software Foundation, Inc., 51 Franklin Street,
  * Fifth Floor, Boston, MA 02110-1301 USA.
  */
@@ -22,7 +22,7 @@ require("company.nut");
 // Cargo description.
 class Cargo
 {
-    index   = null; ///< Index of the cargo in the cargo table (#BusyBeeClass.cargoes).
+    index   = null; ///< Index of the cargo in the cargo table (#BeeRewardClass.cargoes).
     cid     = null; ///< Id of the cargo in GRF.
     freight = null; ///< Whether the cargo is considered to be freight.
     effect  = null; ///< Town effect (One of #GSCargo.TownEffect).
@@ -53,7 +53,7 @@ function Cargo::GetWeight(effect)
 // ************************************************************************
 // ************************************************************************
 
-class BusyBeeClass extends GSController
+class BeeRewardClass extends GSController
 {
     cargoes = null;  ///< Cargoes of the game (index -> 'cid' number, 'freight' boolean, 'effect' on town).
     num_cargoes = 0; ///< Number of cargoes in 'this.cargoes'.
@@ -68,7 +68,7 @@ class BusyBeeClass extends GSController
     function Start();
 }
 
-function BusyBeeClass::Load(version, data)
+function BeeRewardClass::Load(version, data)
 {
     this.loaded = true;
     this.Initialize();
@@ -79,7 +79,7 @@ function BusyBeeClass::Load(version, data)
     }
 }
 
-function BusyBeeClass::Save()
+function BeeRewardClass::Save()
 {
     local result = {};
     foreach (comp_id, cdata in this.companies) {
@@ -90,7 +90,7 @@ function BusyBeeClass::Save()
 }
 
 // Initialize core data of the script.
-function BusyBeeClass::Initialize()
+function BeeRewardClass::Initialize()
 {
     if (this.companies != null) return; // Already initialized.
 
@@ -119,7 +119,7 @@ function BusyBeeClass::Initialize()
 // @param cargo_index Cargo index (index in this.cargoes).
 // @return List of resources that produce the requested cargo, list of
 //      'ind' or 'town' number, 'prod' produced amount, 'transp' transported amount, and 'loc' location.
-function BusyBeeClass::FindSources(cargo_index)
+function BeeRewardClass::FindSources(cargo_index)
 {
     local cargo = this.cargoes[cargo_index];
     local num_sources = 0;
@@ -167,7 +167,7 @@ function BusyBeeClass::FindSources(cargo_index)
 // @param cargo_index Cargo index (index in this.cargoes).
 // @param company Company to inspect.
 // @return A list of destinations, tables 'ind' or 'town' id, and a 'loc' location.
-function BusyBeeClass::FindDestinations(cargo_index, company)
+function BeeRewardClass::FindDestinations(cargo_index, company)
 {
     local cargo = this.cargoes[cargo_index];
     local num_dests = 0;
@@ -218,18 +218,18 @@ function BusyBeeClass::FindDestinations(cargo_index, company)
 // @param desired Desired distance.
 // @param actual Actual distance.
 // @return Score for the distance.
-function BusyBeeClass::GetDistanceScore(desired, actual)
+function BeeRewardClass::GetDistanceScore(desired, actual)
 {
     if (actual < desired) return 1000 - 3 * (desired - actual); // Too close gets punished hard.
     return 1000 - (actual - desired);
 }
 
 // Try to find a challenge for a given cargo and a desired distance.
-// @param cargo_index Index in BusyBeeClass.cargoes.
+// @param cargo_index Index in BeeRewardClass.cargoes.
 // @param distance Desired distance between source and target.
 // @param comp_id Company to find a challenge for.
 // @return Best accepting industry to use, or 'null' if no industry-pair found.
-function BusyBeeClass::FindChallenge(cargo_index, distance, comp_id)
+function BeeRewardClass::FindChallenge(cargo_index, distance, comp_id)
 {
     local prods = this.FindSources(cargo_index);
     if (prods.len() == 0) return null;
@@ -266,7 +266,7 @@ function BusyBeeClass::FindChallenge(cargo_index, distance, comp_id)
 
 // Select the next cargo to use for a goal.
 // @return The index of the cargo to use in this.cargoes.
-function BusyBeeClass::SelectCargo()
+function BeeRewardClass::SelectCargo()
 {
     local remaining = GSBase.RandRange(this.sum_weight);
     local cargo_index = 0;
@@ -280,7 +280,7 @@ function BusyBeeClass::SelectCargo()
 
 // Try to add a goal for a company.
 // @param comp_id Company to find a challenge for.
-function BusyBeeClass::CreateChallenge(comp_id)
+function BeeRewardClass::CreateChallenge(comp_id)
 {
     local cdata = this.companies[comp_id];
     local cargomp = GSController.GetSetting("cargo_mp");
@@ -320,7 +320,7 @@ function BusyBeeClass::CreateChallenge(comp_id)
 
 // Process events that arrived.
 // @return Table with 'force_goal' bool to force goal updating.
-function BusyBeeClass::ProcessEvents()
+function BeeRewardClass::ProcessEvents()
 {
     local force_goal = false;
     while (GSEventController.IsEventWaiting()) {
@@ -362,7 +362,7 @@ function BusyBeeClass::ProcessEvents()
 
 // Check if new goals should be created.
 // @return Table with 'more_goals_needed' boolean, and 'force_monitor' to force updating.
-function BusyBeeClass::TryAddNewGoal()
+function BeeRewardClass::TryAddNewGoal()
 {
     local force_monitor=false;
 
@@ -391,7 +391,7 @@ function BusyBeeClass::TryAddNewGoal()
 // Update progress on existing monitored goals, add monitoring for new goals, and drop monitors for removed goals.
 // @param old_cmon Monitored deliveries (or 'null' if first call).
 // @return Table 'cmon' with the new monitored deliveries, 'finished_goals' boolean when there exist goals that are completed.
-function BusyBeeClass::UpdateDeliveries(old_cmon)
+function BeeRewardClass::UpdateDeliveries(old_cmon)
 {
     if (old_cmon == null) { // First run, clear any old monitoring.
         GSCargoMonitor.StopAllMonitoring();
@@ -421,7 +421,7 @@ function BusyBeeClass::UpdateDeliveries(old_cmon)
 }
 
 // The script data got loaded from file, check it against the game.
-function BusyBeeClass::CompaniesPostLoadCheck()
+function BeeRewardClass::CompaniesPostLoadCheck()
 {
     // Check companies.
     for (local comp_id = GSCompany.COMPANY_FIRST; comp_id <= GSCompany.COMPANY_LAST; comp_id++) {
@@ -446,7 +446,7 @@ function BusyBeeClass::CompaniesPostLoadCheck()
     }
 }
 
-function BusyBeeClass::Start()
+function BeeRewardClass::Start()
 {
     this.Initialize();
     this.Sleep(1); // Wait for the game to start.
@@ -525,7 +525,7 @@ function BusyBeeClass::Start()
 // Fill company monitors with monitored amounts.
 // @param [inout] cmon Table of 'comp_id' number to 'cargo_id' number to
 //      'ind' and/or 'town' to resource indices to 'null'.
-function BusyBeeClass::FillMonitors(cmon)
+function BeeRewardClass::FillMonitors(cmon)
 {
     foreach (comp_id, mon in cmon) {
         foreach (cargo_id, rmon in mon) {
@@ -555,7 +555,7 @@ function BusyBeeClass::FillMonitors(cmon)
     }
 }
 
-function BusyBeeClass::UpdateCompanyMonitors(old_cmon, cmon)
+function BeeRewardClass::UpdateCompanyMonitors(old_cmon, cmon)
 {
     foreach (comp_id, old_mon in old_cmon) {
         if (comp_id in cmon) {
@@ -566,7 +566,7 @@ function BusyBeeClass::UpdateCompanyMonitors(old_cmon, cmon)
     }
 }
 
-function BusyBeeClass::UpdateCargoMonitors(comp_id, old_mon, mon)
+function BeeRewardClass::UpdateCargoMonitors(comp_id, old_mon, mon)
 {
     foreach (cargo_id, old_rmon in old_mon) {
         if (cargo_id in mon) {
@@ -577,7 +577,7 @@ function BusyBeeClass::UpdateCargoMonitors(comp_id, old_mon, mon)
     }
 }
 
-function BusyBeeClass::UpdateResourceMonitors(comp_id, cargo_id, old_rmon, rmon)
+function BeeRewardClass::UpdateResourceMonitors(comp_id, cargo_id, old_rmon, rmon)
 {
     if ("town" in old_rmon) {
         if ("town" in rmon) {
@@ -595,7 +595,7 @@ function BusyBeeClass::UpdateResourceMonitors(comp_id, cargo_id, old_rmon, rmon)
     }
 }
 
-function BusyBeeClass::UpdateTownMonitors(comp_id, cargo_id, old_tmon, tmon)
+function BeeRewardClass::UpdateTownMonitors(comp_id, cargo_id, old_tmon, tmon)
 {
     foreach (town_id, _ in old_tmon) {
         if (!(town_id in tmon)) {
@@ -607,7 +607,7 @@ function BusyBeeClass::UpdateTownMonitors(comp_id, cargo_id, old_tmon, tmon)
     }
 }
 
-function BusyBeeClass::UpdateIndMonitors(comp_id, cargo_id, old_imon, imon)
+function BeeRewardClass::UpdateIndMonitors(comp_id, cargo_id, old_imon, imon)
 {
     foreach (ind_id, _ in old_imon) {
         if (!(ind_id in imon)) {

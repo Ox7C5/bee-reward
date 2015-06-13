@@ -1,1 +1,1 @@
-BusyBee continuously gives you new goals for transportation. It's meant for long-term fun; as such there is no ultimate goal to achieve.
+BeeReward is a fork of Busy Bee. It continuously gives you new goals for transportation, and can give rewards in the form of money for achieving it. There is no ultimate goal to achieve.
