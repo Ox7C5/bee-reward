@@ -25,15 +25,15 @@ PROGRAM_DATE <- Syntax error, set by 'make bundle'.
 PROGRAM_NAME <- Syntax error, set by 'make bundle'.
 
 class BusyBeeInfo extends GSInfo {
-    function GetAuthor()        { return "alberth & andythenorth"; }
-    function GetName()          { return "Busy Bee"; } // Old: return PROGRAM_NAME;
-    function GetDescription()   { return "Make connection, transport cargo"; }
+    function GetAuthor()        { return "alberth & andythenorth, reward by jottyfan"; }
+    function GetName()          { return "Bee Reward"; } // Old: return PROGRAM_NAME;
+    function GetDescription()   { return "Make connection, transport cargo, recieve reward"; }
     function GetVersion()       { return PROGRAM_VERSION + SAVEGAME_VERSION * 100000; }
     function GetDate()          { return PROGRAM_DATE; }
     function CreateInstance()   { return "BusyBeeClass"; }
-    function GetShortName()     { return "BBEE"; }
+    function GetShortName()     { return "BREW"; }
     function GetAPIVersion()    { return "1.5"; }
-    function GetUrl()           { return "http://dev.openttdcoop.org/projects/busy-bee-gs"; }
+    function GetUrl()           { return "http://dev.openttdcoop.org/projects/bee-awards"; }
     function MinVersionToLoad() { return MINCOMPATIBLE_SAVEGAME_VERSION; }
     function GetSettings();
 }
@@ -94,6 +94,16 @@ function BusyBeeInfo::GetSettings()
                        medium_value=1,
                        hard_value=1,
                        custom_value=1,
+                       flags=GSInfo.CONFIG_INGAME});
+    GSInfo.AddSetting({name="subsidy_factor",
+                       description="Factor to be multiplied with cargo amount as reward",
+                       min_value=0,
+                       max_value=4,
+                       easy_value=3,
+                       medium_value=2,
+                       hard_value=1,
+                       custom_value=0,
+                       step_size=0.5,
                        flags=GSInfo.CONFIG_INGAME});
 }
 

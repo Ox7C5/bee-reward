@@ -25,7 +25,9 @@ class CompanyGoal {
     delivered_amount = 0; // Amount delivered so far.
     goal_id = null;       // Number of the goal in OpenTTD goal window.
     timeout = null;       // Timeout in ticks before the goal becomes obsolete.
-
+    reward = 0;    // reward for reached goal (makes this come closer to subsidies)
+    subsidyfactor = GSController.GetSetting("subsidy_factor") * 20;
+    		
     displayed_string = null;
     displayed_count = null;
 
@@ -38,6 +40,7 @@ class CompanyGoal {
         this.cargo = cargo;
         this.accept = accept;
         this.wanted_amount = wanted_amount;
+        this.reward = this.wanted_amount * subsidyfactor; // estimated factor, better would be a random value
         this.ResetTimeout();
 
         // Construct goal if a company id was provided.
@@ -54,11 +57,15 @@ class CompanyGoal {
                 destination_string_news = GSText(GSText.STR_INDUSTRY_NAME_NEWS, destination);
                 goal_type = GSGoal.GT_INDUSTRY;
             }
-            local goal_text = GSText(GSText.STR_COMPANY_GOAL, cargo.cid,
-                                     this.wanted_amount, destination_string);
+            local goal_text, goal_news_text;
+            if (this.reward > 0) {
+              goal_text      = GSText(GSText.STR_COMPANY_GOAL_REWARD,      cargo.cid, this.wanted_amount, destination_string,      this.reward);
+              goal_news_text = GSText(GSText.STR_COMPANY_GOAL_REWARD_NEWS, cargo.cid, this.wanted_amount, destination_string_news, this.reward);
+            } else {
+              goal_text      = GSText(GSText.STR_COMPANY_GOAL,      cargo.cid, this.wanted_amount, destination_string);
+              goal_news_text = GSText(GSText.STR_COMPANY_GOAL_NEWS, cargo.cid, this.wanted_amount, destination_string_news);
+            }
             this.goal_id = GSGoal.New(comp_id, goal_text, goal_type, destination);
-            local goal_news_text = GSText(GSText.STR_COMPANY_GOAL_NEWS, cargo.cid,
-                                     this.wanted_amount, destination_string_news);
             this.PublishNews(goal_news_text, comp_id);
         }
     }
@@ -90,7 +97,7 @@ function CompanyGoal::ResetTimeout()
 function CompanyGoal::SaveGoal()
 {
     return {cid=this.cargo.cid, accept=this.accept, wanted=this.wanted_amount,
-            delivered=this.delivered_amount, goal=this.goal_id, timeout=this.timeout};
+            delivered=this.delivered_amount, goal=this.goal_id, timeout=this.timeout, reward=this.reward};
 }
 
 // Load an existing goal.
@@ -106,6 +113,7 @@ function CompanyGoal::LoadGoal(loaded_data, cargoes)
             goal.delivered_amount = loaded_data.delivered;
             goal.goal_id = loaded_data.goal;
             goal.timeout = loaded_data.timeout;
+            goal.reward = loaded_data.reward;
             return goal;
         }
     }
@@ -151,8 +159,12 @@ function CompanyGoal::UpdateDelivered(mon, comp_id)
                 } else {
                     destination_string_news = GSText(GSText.STR_INDUSTRY_NAME_NEWS, this.accept.ind);
                 }
-                local goal_won_news = GSText(GSText.STR_COMPANY_GOAL_WON_NEWS, cargo.cid,
-                                         this.wanted_amount, destination_string_news);
+                local goal_won_news;
+                if (this.reward > 0) {
+                  goal_won_news = GSText(GSText.STR_COMPANY_GOAL_REWARD_WON_NEWS, cargo.cid, this.wanted_amount, destination_string_news, this.reward);
+                } else {
+                  goal_won_news = GSText(GSText.STR_COMPANY_GOAL_WON_NEWS,        cargo.cid, this.wanted_amount, destination_string_news);
+                }
                 this.PublishNews(goal_won_news, comp_id);
             } else {
                 perc = 100 * this.delivered_amount / this.wanted_amount;

@@ -1,8 +1,11 @@
 ##plural 0
 
+STR_COMPANY_GOAL_REWARD     :Liefere {GOLD}{CARGO_LONG} {ORANGE}nach {STRING}{ORANGE} bringt {WHITE}{STRING}{CURRENCY_LONG} {ORANGE}ein
 STR_COMPANY_GOAL            :Liefere {GOLD}{CARGO_LONG} {ORANGE}nach {STRING}
+STR_COMPANY_GOAL_REWARD_NEWS:Neues Ziel! Liefere {CARGO_LONG} nach {STRING} für {STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL_NEWS       :Neues Ziel! Liefere {CARGO_LONG} nach {STRING}
 STR_PROGRESS                :{YELLOW}{NUM}% {ORANGE}erreicht
+STR_COMPANY_GOAL_REWARD_WON_NEWS:Ziel erreicht! {CARGO_LONG} nach {STRING} geliefert und {STRING}{CURRENCY_LONG} kassiert
 STR_COMPANY_GOAL_WON_NEWS   :Ziel erreicht! {CARGO_LONG} nach {STRING} geliefert
 STR_TIMEOUT_YEARS           :{GOLD}{NUM} {ORANGE}Jahr{P "" e} verbleib{P t en}
 STR_TIMEOUT_MONTHS          :{GOLD}{NUM} {ORANGE}Monat{P "" e} verbleib{P t en}
