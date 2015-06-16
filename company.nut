@@ -165,6 +165,7 @@ function CompanyGoal::UpdateDelivered(mon, comp_id)
                 }
                 local goal_won_news;
                 if (this.reward > 0) {
+                  GSCompany.ChangeBankBalance(this.comp_id, goal.reward, 0);
                   goal_won_news = GSText(GSText.STR_COMPANY_GOAL_REWARD_WON_NEWS, cargo.cid, this.wanted_amount, destination_string_news, this.reward);
                 } else {
                   goal_won_news = GSText(GSText.STR_COMPANY_GOAL_WON_NEWS,        cargo.cid, this.wanted_amount, destination_string_news);
@@ -528,7 +529,6 @@ function CompanyData::CheckAndFinishGoals()
         if (goal == null) continue;
         if (goal.CheckFinished()) {
             goal.FinalizeGoal();
-            GSCompany.ChangeBankBalance(this.comp_id, goal.reward, 0);
             this.active_goals[num] = null;
         }
     }
