@@ -45,17 +45,18 @@ Translations
 ============
 We thank the following people for their contributed translations:
 
-    Afrikaans:  telanus
-    Catalan:    juanjo
-    Croatian:   Voyager1
-    French:     arikover
-    German:     frosch
-    Indonesian: UseYourIllusion
-    Italian:    Snail, Voyager1
-    Korean:     kevin
-    Latin:      Supercheese
-    Spanish:    SilverSurferZzZ
-    Swedish:    Zuu
+    Afrikaans:            telanus
+    Catalan:              juanjo
+    Chinese (Simplified): dirace
+    Croatian:             Voyager1
+    French:               arikover
+    German:               frosch
+    Indonesian:           UseYourIllusion
+    Italian:              Snail, Voyager1
+    Korean:               kevin
+    Latin:                Supercheese
+    Spanish:              SilverSurferZzZ
+    Swedish:              Zuu
 
 
 License
