@@ -26,7 +26,7 @@ class CompanyGoal {
     goal_id = null;       // Number of the goal in OpenTTD goal window.
     timeout = null;       // Timeout in ticks before the goal becomes obsolete.
     reward = 0;    // reward for reached goal (makes this come closer to subsidies)
-    subsidyfactor = GSController.GetSetting("subsidy_factor") * 20;
+    subsidyfactor = GSController.GetSetting("subsidy_factor");
     rewardfactor_town = GSController.GetSetting("rewardfactor_town");
     rewardfactor_ind = GSController.GetSetting("rewardfactor_ind");
     		
@@ -42,7 +42,7 @@ class CompanyGoal {
         this.cargo = cargo;
         this.accept = accept;
         this.wanted_amount = wanted_amount;
-        this.reward = this.wanted_amount * subsidyfactor; // estimated factor, better would be a random value
+        this.reward = (this.wanted_amount * subsidyfactor) / 100; // estimated factor, better would be a random value
         this.ResetTimeout();
 
         // Construct goal if a company id was provided.
@@ -53,13 +53,13 @@ class CompanyGoal {
                 destination_string = GSText(GSText.STR_TOWN_NAME, destination);
                 destination_string_news = GSText(GSText.STR_TOWN_NAME_NEWS, destination);
                 goal_type = GSGoal.GT_TOWN;
-                this.reward = this.reward * rewardfactor_town;
+                this.reward = (this.reward * rewardfactor_town) / 100;
             } else {
                 destination = accept.ind;
                 destination_string = GSText(GSText.STR_INDUSTRY_NAME, destination);
                 destination_string_news = GSText(GSText.STR_INDUSTRY_NAME_NEWS, destination);
                 goal_type = GSGoal.GT_INDUSTRY;
-                this.reward = this.reward * rewardfactor_ind;
+                this.reward = (this.reward * rewardfactor_ind) / 100;
             }
             local goal_text, goal_news_text;
             if (this.reward > 0) {
