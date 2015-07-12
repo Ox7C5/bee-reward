@@ -17,8 +17,8 @@
  * Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-SAVEGAME_VERSION <- 4; // Set manually if/when save games break.
-MINCOMPATIBLE_SAVEGAME_VERSION <- 4; // cset: c87ea540a037
+SAVEGAME_VERSION <- 5; // Set manually if/when save games break.
+MINCOMPATIBLE_SAVEGAME_VERSION <- 5; // cset: c87ea540a037
 
 PROGRAM_VERSION <- Syntax error, set by 'make bundle'.
 PROGRAM_DATE <- Syntax error, set by 'make bundle'.
