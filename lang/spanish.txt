@@ -1,5 +1,6 @@
 ##plural 0
 
+STR_COMPANY_GOAL_REWARD                :Entrega {GOLD}{CARGO_LONG} {ORANGE}a {STRING}{ORANGE} para {WHITE}{STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL                       :Entrega {GOLD}{CARGO_LONG} {ORANGE}a {STRING}
 STR_COMPANY_GOAL_NEWS                  :¡Nueva meta! Entrega {CARGO_LONG} a {STRING}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}hecho
