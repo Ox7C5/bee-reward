@@ -2,8 +2,10 @@
 
 STR_COMPANY_GOAL_REWARD                :Entrega {GOLD}{CARGO_LONG} {ORANGE}a {STRING}{ORANGE} para {WHITE}{STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL                       :Entrega {GOLD}{CARGO_LONG} {ORANGE}a {STRING}
+STR_COMPANY_GOAL_REWARD_NEWS           :¡Nueva meta! Entrega {CARGO_LONG} a {STRING} para {STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL_NEWS                  :¡Nueva meta! Entrega {CARGO_LONG} a {STRING}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}hecho
+STR_COMPANY_GOAL_REWARD_WON_NEWS       :¡Meta conseguida! {CARGO_LONG} entregado a {STRING} y ganado {STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL_WON_NEWS              :¡Meta conseguida! {CARGO_LONG} entregado a {STRING}
 STR_TIMEOUT_YEARS                      :{ORANGE}Quedan {GOLD}{NUM} {ORANGE}año{P "" s}
 STR_TIMEOUT_MONTHS                     :{ORANGE}Quedan {GOLD}{NUM} {ORANGE}mes{P "" es}
