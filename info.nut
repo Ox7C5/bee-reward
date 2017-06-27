@@ -17,7 +17,7 @@
  * Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-SAVEGAME_VERSION <- 5; // Set manually if/when save games break.
+SAVEGAME_VERSION <- 6; // Set manually if/when save games break.
 MINCOMPATIBLE_SAVEGAME_VERSION <- 5; // cset: c87ea540a037
 
 PROGRAM_VERSION <- Syntax error, set by 'make bundle'.
@@ -41,13 +41,13 @@ class BeeRewardInfo extends GSInfo {
 function BeeRewardInfo::GetSettings()
 {
     GSInfo.AddSetting({name="num_goals",
-                       description="Number of goals for a company (1-10)",
+                       description="Number of goals for a company (1-32)",
                        min_value=1,
-                       max_value=10,
-                       easy_value=5,
-                       medium_value=5,
-                       hard_value=5,
-                       custom_value=5,
+                       max_value=32,
+                       easy_value=16,
+                       medium_value=8,
+                       hard_value=4,
+                       custom_value=8,
                        flags=GSInfo.CONFIG_NONE});
     GSInfo.AddSetting({name="wait_years",
                        description="Time to wait before first delivery (4-20 year)",
@@ -62,10 +62,10 @@ function BeeRewardInfo::GetSettings()
                        description="Cargo amount multiplier (50-2000%)",
                        min_value=50,
                        max_value=2000,
-                       easy_value=50,
+                       easy_value=1000,
                        medium_value=500,
-                       hard_value=1000,
-                       custom_value=100,
+                       hard_value=100,
+                       custom_value=500,
                        step_size = 10,
                        flags=GSInfo.CONFIG_INGAME});
     GSInfo.AddSetting({name="pass_weight",
@@ -108,9 +108,9 @@ function BeeRewardInfo::GetSettings()
     GSInfo.AddSetting({name="rewardfactor_town",
                        description="Extra factor to be multiplied with reward for towns",
                        min_value=0,
-                       max_value=200,
-                       easy_value=200,
-                       medium_value=100,
+                       max_value=1000,
+                       easy_value=500,
+                       medium_value=200,
                        hard_value=0,
                        custom_value=0,
                        step_size=1,

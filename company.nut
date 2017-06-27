@@ -29,7 +29,8 @@ class CompanyGoal {
     subsidyfactor = GSController.GetSetting("subsidy_factor");
     rewardfactor_town = GSController.GetSetting("rewardfactor_town");
     rewardfactor_ind = GSController.GetSetting("rewardfactor_ind");
-    		
+    inflation_factor = 1.0;
+
     displayed_string = null;
     displayed_count = null;
 
@@ -42,7 +43,19 @@ class CompanyGoal {
         this.cargo = cargo;
         this.accept = accept;
         this.wanted_amount = wanted_amount;
-        this.reward = (this.wanted_amount * subsidyfactor) / 100; // estimated factor, better would be a random value
+
+        local inflationOn = GSGameSettings.GetValue("inflation");
+
+        if (inflationOn) {
+            local gamets = GSDate.GetCurrentDate();
+            local starting_year = GSGameSettings.GetValue("starting_year");
+            local gameyears = GSDate.GetYear(gamets) - starting_year;
+            inflation_factor = 1.0 + (gameyears * 0.03); // calculate new inflation factor; estimate 3% each year
+        }
+
+        local inflation_percent = inflation_factor * 100;
+
+        this.reward = (this.wanted_amount * subsidyfactor * inflation_factor) / 100; // estimated factor, better would be a random value
         this.ResetTimeout();
 
         // Construct goal if a company id was provided.
@@ -62,6 +75,9 @@ class CompanyGoal {
                 this.reward = (this.reward * rewardfactor_ind) / 100;
             }
             local goal_text, goal_news_text;
+
+            this.reward = this.reward.tointeger();
+
             if (this.reward > 0) {
               goal_text      = GSText(GSText.STR_COMPANY_GOAL_REWARD,      cargo.cid, this.wanted_amount, destination_string,      this.reward);
               goal_news_text = GSText(GSText.STR_COMPANY_GOAL_REWARD_NEWS, cargo.cid, this.wanted_amount, destination_string_news, this.reward);
