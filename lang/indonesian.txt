@@ -1,8 +1,11 @@
 ##plural 1
 
+STR_COMPANY_GOAL_REWARD                :Antarkan {GOLD}{CARGO_LONG} {ORANGE}ke {STRING}{ORANGE} untuk {WHITE}{STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL                       :Antarkan {GOLD}{CARGO_LONG} {ORANGE}ke {STRING}
+STR_COMPANY_GOAL_REWARD_NEWS           :Target baru! Antarkan {CARGO_LONG} ke {STRING} untuk {STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL_NEWS                  :Target baru! Antarkan {CARGO_LONG} ke {STRING}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}selesai
+STR_COMPANY_GOAL_REWARD_WON_NEWS       :Target tercapai! {CARGO_LONG} diantarkan ke {STRING} dan beruntung {STRING}{CURRENCY_LONG}
 STR_COMPANY_GOAL_WON_NEWS              :Target tercapai! {CARGO_LONG} diantarkan ke {STRING}
 STR_TIMEOUT_YEARS                      :{GOLD}{NUM} {ORANGE}tahun tersisa
 STR_TIMEOUT_MONTHS                     :{GOLD}{NUM} {ORANGE}bulan tersisa
