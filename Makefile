@@ -24,12 +24,13 @@ BANANAS_INI = bananas.ini
 
 MUSA = musa.py
 
-VERSION_INFO := "$(shell ./findversion.sh)"
-REPO_VERSION := $(shell echo ${VERSION_INFO} | cut -f2)
-REPO_TAG := $(shell echo ${VERSION_INFO} | cut -f5)
-REPO_DATE := $(shell echo ${VERSION_INFO} | cut -f7)
+VERSION_INFO := $(shell ./findversion.sh)
+VERSION_NUMBER := $(shell echo "$(VERSION_INFO)" | sed 's/v//g')
+REPO_VERSION := $(shell git rev-parse HEAD)
+REPO_TAG := $(VERSION_INFO)
+REPO_DATE := $(shell date +%Y-%m-%d)
 
-DISPLAY_NAME := $(PROJECT_NAME) $(REPO_TAG)
+DISPLAY_NAME := $(PROJECT_NAME) $(VERSION_INFO)
 BUNDLE_NAME := $(PROJECT_NAME)
 BUNDLE_FILENAME = $(shell echo "$(DISPLAY_NAME)" | sed 's/ /-/g')
 
@@ -47,12 +48,12 @@ bundle: $(BUNDLE_DIR)/$(BUNDLE_FILENAME).tar
 
 $(BUNDLE_DIR)/$(BUNDLE_FILENAME).tar: $(SOURCES) $(LANGFILES) $(DOCS)
 	echo "[Bundle] $@"
-	python3 check_lang_compatibility.py lang/english.txt info.nut
+#	python3 check_lang_compatibility.py lang/english.txt info.nut
 	rm -rf "$(BUNDLE_DIR)"
 	mkdir -p "$(BUNDLE_DIR)/$(BUNDLE_FILENAME)/lang"
 	cp $(SOURCES) $(DOCS) "$(BUNDLE_DIR)/$(BUNDLE_FILENAME)"
 	cp $(LANGFILES) "$(BUNDLE_DIR)/$(BUNDLE_FILENAME)/lang"
-	sed -e 's/^PROGRAM_VERSION.*/PROGRAM_VERSION <- $(REPO_VERSION);/' \
+	sed -e 's/^PROGRAM_VERSION.*/PROGRAM_VERSION <- $(VERSION_NUMBER);/' \
 	    -e 's/^PROGRAM_DATE.*/PROGRAM_DATE <- "$(REPO_DATE)";/' \
 	    -e 's/^PROGRAM_NAME.*/PROGRAM_NAME <- "$(DISPLAY_NAME)";/' < info.nut > "$(BUNDLE_DIR)/$(BUNDLE_FILENAME)/info.nut"
 	cd $(BUNDLE_DIR); tar -cf "$(BUNDLE_FILENAME).tar" "$(BUNDLE_FILENAME)"
