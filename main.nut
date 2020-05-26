@@ -257,7 +257,7 @@ function BeeRewardClass::FindChallenge(cargo_index, distance, comp_id)
             }
         }
         if (prod_score > best_score) { // The accepting industry is better than what we have.
-            prod_score = best_score;
+            best_score = prod_score;
             best_accept = accept;
         }
     }
