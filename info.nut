@@ -33,7 +33,7 @@ class BeeRewardInfo extends GSInfo {
     function CreateInstance()   { return "BeeRewardClass"; }
     function GetShortName()     { return "BREW"; }
     function GetAPIVersion()    { return "1.5"; }
-    function GetUrl()           { return "http://dev.openttdcoop.org/projects/bee-awards"; }
+    function GetUrl()           { return "https://gitlab.com/jottyfan/bee-reward/"; }
     function MinVersionToLoad() { return MINCOMPATIBLE_SAVEGAME_VERSION; }
     function GetSettings();
 }
