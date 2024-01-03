@@ -1,12 +1,12 @@
 ##plural 0
 
-STR_COMPANY_GOAL_REWARD                :Trade {GOLD}{CARGO_LONG} {ORANGE}ad {STRING}{ORANGE} ut accipias {WHITE}{STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL                       :Trade {GOLD}{CARGO_LONG} {ORANGE}ad {STRING}
-STR_COMPANY_GOAL_REWARD_NEWS           :Nova meta! Trade {CARGO_LONG} ad {STRING} ut accipias {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_NEWS                  :Meta nova! Trade {CARGO_LONG} ad {STRING}
+STR_COMPANY_GOAL_REWARD                :Trade {GOLD}{CARGO_LONG} {ORANGE}ad {STRING1}{ORANGE} ut accipias {WHITE}{CURRENCY_LONG}
+STR_COMPANY_GOAL                       :Trade {GOLD}{CARGO_LONG} {ORANGE}ad {STRING1}
+STR_COMPANY_GOAL_REWARD_NEWS           :Nova meta! Trade {CARGO_LONG} ad {STRING1} ut accipias {CURRENCY_LONG}
+STR_COMPANY_GOAL_NEWS                  :Meta nova! Trade {CARGO_LONG} ad {STRING1}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}tradita
-STR_COMPANY_GOAL_REWARD_WON_NEWS       :Meta perfecta! {CARGO_LONG} tradita ad {STRING} et lucraris {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_WON_NEWS              :Vicisti! {CARGO_LONG} tradita est ad {STRING}
+STR_COMPANY_GOAL_REWARD_WON_NEWS       :Meta perfecta! {CARGO_LONG} tradita ad {STRING1} et lucraris {CURRENCY_LONG}
+STR_COMPANY_GOAL_WON_NEWS              :Vicisti! {CARGO_LONG} tradita est ad {STRING1}
 STR_TIMEOUT_YEARS                      :{GOLD}{NUM} {ORANGE}ann{P us i} reliqu{P us i}
 STR_TIMEOUT_MONTHS                     :{GOLD}{NUM} {ORANGE}mens{P is es} reliqu{P us i}
 STR_TIMEOUT_DAYS                       :{GOLD}{NUM} {ORANGE}dies reliqu{P us i}

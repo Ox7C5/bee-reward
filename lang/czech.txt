@@ -1,12 +1,12 @@
 ##plural 10
 
-STR_COMPANY_GOAL_REWARD                :Doruč {GOLD}{CARGO_LONG} {ORANGE}do {STRING}{ORANGE} za {WHITE}{STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL                       :Doruč {GOLD}{CARGO_LONG} {ORANGE}do {STRING}
-STR_COMPANY_GOAL_REWARD_NEWS           :Nový cíl! Doruč {CARGO_LONG} do {STRING} za {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_NEWS                  :Nový cíl! Doruč {CARGO_LONG} do {STRING}
+STR_COMPANY_GOAL_REWARD                :Doruč {GOLD}{CARGO_LONG} {ORANGE}do {STRING1}{ORANGE} za {WHITE}{CURRENCY_LONG}
+STR_COMPANY_GOAL                       :Doruč {GOLD}{CARGO_LONG} {ORANGE}do {STRING1}
+STR_COMPANY_GOAL_REWARD_NEWS           :Nový cíl! Doruč {CARGO_LONG} do {STRING1} za {CURRENCY_LONG}
+STR_COMPANY_GOAL_NEWS                  :Nový cíl! Doruč {CARGO_LONG} do {STRING1}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}hotovo
-STR_COMPANY_GOAL_REWARD_WON_NEWS       :Cíl splněn! {CARGO_LONG} doručeno do {STRING} a získáno {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_WON_NEWS              :Cíl splněn! {CARGO_LONG} doručeno do {STRING}
+STR_COMPANY_GOAL_REWARD_WON_NEWS       :Cíl splněn! {CARGO_LONG} doručeno do {STRING1} a získáno {CURRENCY_LONG}
+STR_COMPANY_GOAL_WON_NEWS              :Cíl splněn! {CARGO_LONG} doručeno do {STRING1}
 STR_TIMEOUT_YEARS                      :Zbývá {GOLD}{NUM} {ORANGE}rok{P "" "y" "ů"}
 STR_TIMEOUT_MONTHS                     :Zbývá {GOLD}{NUM} {ORANGE}měsíc{P "" "e" "ů"}
 STR_TIMEOUT_DAYS                       :Zbývá {GOLD}{NUM} {ORANGE}d{P "en" "ny" "nů"}

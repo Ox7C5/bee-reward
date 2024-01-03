@@ -1,12 +1,12 @@
 ##plural 6
 
-STR_COMPANY_GOAL_REWARD                :Доставьте {GOLD}{CARGO_LONG} {ORANGE}в {STRING}{ORANGE} за {WHITE}{STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL                       :Доставьте {GOLD}{CARGO_LONG} {ORANGE}в {STRING}
-STR_COMPANY_GOAL_REWARD_NEWS           :Новая цель! Доставьте {CARGO_LONG} в {STRING} за {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_NEWS                  :Новая цель! Доставьте {CARGO_LONG} в {STRING}
+STR_COMPANY_GOAL_REWARD                :Доставьте {GOLD}{CARGO_LONG} {ORANGE}в {STRING1}{ORANGE} за {WHITE}{CURRENCY_LONG}
+STR_COMPANY_GOAL                       :Доставьте {GOLD}{CARGO_LONG} {ORANGE}в {STRING1}
+STR_COMPANY_GOAL_REWARD_NEWS           :Новая цель! Доставьте {CARGO_LONG} в {STRING1} за {CURRENCY_LONG}
+STR_COMPANY_GOAL_NEWS                  :Новая цель! Доставьте {CARGO_LONG} в {STRING1}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}выполнено
-STR_COMPANY_GOAL_REWARD_WON_NEWS       :Цель достигнута! {CARGO_LONG} доставлено в {STRING} и получено {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_WON_NEWS              :Цель достигнута! {CARGO_LONG} доставлено в {STRING}
+STR_COMPANY_GOAL_REWARD_WON_NEWS       :Цель достигнута! {CARGO_LONG} доставлено в {STRING1} и получено {CURRENCY_LONG}
+STR_COMPANY_GOAL_WON_NEWS              :Цель достигнута! {CARGO_LONG} доставлено в {STRING1}
 STR_TIMEOUT_YEARS                      :{GOLD}{NUM} {ORANGE}{P год года лет} осталось
 STR_TIMEOUT_MONTHS                     :{GOLD}{NUM} {ORANGE}месяц{P "" а ев} осталось
 STR_TIMEOUT_DAYS                       :{GOLD}{NUM} {ORANGE}{P день дня дней} осталось
