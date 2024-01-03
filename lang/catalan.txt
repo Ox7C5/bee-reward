@@ -1,12 +1,12 @@
 ##plural 0
 
-STR_COMPANY_GOAL_REWARD                :Envia {GOLD}{CARGO_LONG} {ORANGE}a {STRING}{ORANGE} per {WHITE}{STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL                       :Envia {GOLD}{CARGO_LONG} {ORANGE}a {STRING}
-STR_COMPANY_GOAL_REWARD_NEWS           :Nou objectiu! Envia {CARGO_LONG} a {STRING} per {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_NEWS                  :Nou objectiu! Envia {CARGO_LONG} a {STRING}
+STR_COMPANY_GOAL_REWARD                :Envia {GOLD}{CARGO_LONG} {ORANGE}a {STRING1}{ORANGE} per {WHITE}{CURRENCY_LONG}
+STR_COMPANY_GOAL                       :Envia {GOLD}{CARGO_LONG} {ORANGE}a {STRING1}
+STR_COMPANY_GOAL_REWARD_NEWS           :Nou objectiu! Envia {CARGO_LONG} a {STRING1} per {CURRENCY_LONG}
+STR_COMPANY_GOAL_NEWS                  :Nou objectiu! Envia {CARGO_LONG} a {STRING1}
 STR_PROGRESS                           :{YELLOW}{NUM}% {ORANGE}fet
-STR_COMPANY_GOAL_REWARD_WON_NEWS       :Objectiu aconseguit! {CARGO_LONG} enviats/des a {STRING} per {STRING}{CURRENCY_LONG}
-STR_COMPANY_GOAL_WON_NEWS              :Objectiu aconseguit! {CARGO_LONG} enviats/des {STRING}
+STR_COMPANY_GOAL_REWARD_WON_NEWS       :Objectiu aconseguit! {CARGO_LONG} enviats/des a {STRING1} per {CURRENCY_LONG}
+STR_COMPANY_GOAL_WON_NEWS              :Objectiu aconseguit! {CARGO_LONG} enviats/des {STRING1}
 STR_TIMEOUT_YEARS                      :{GOLD}{NUM} {ORANGE}any{P "" s} restant{P "" s}
 STR_TIMEOUT_MONTHS                     :{GOLD}{NUM} {ORANGE}mes{P "" os} restant{P "" s}
 STR_TIMEOUT_DAYS                       :{GOLD}{NUM} {ORANGE}di{P a es} restant{P "" s}
