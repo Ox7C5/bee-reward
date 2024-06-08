@@ -25,7 +25,7 @@ PROGRAM_DATE <- Syntax error, set by 'make bundle'.
 PROGRAM_NAME <- Syntax error, set by 'make bundle'.
 
 class BeeRewardInfo extends GSInfo {
-    function GetAuthor()        { return "alberth, andythenorth, jottyfan"; }
+    function GetAuthor()        { return "alberth, andythenorth, jottyfan, 0x7C5"; }
     function GetName()          { return "Bee Reward"; } // Old: return PROGRAM_NAME;
     function GetDescription()   { return "Make connection, transport cargo, receive reward"; }
     function GetVersion()       { return PROGRAM_VERSION + SAVEGAME_VERSION * 100000; }
@@ -33,7 +33,7 @@ class BeeRewardInfo extends GSInfo {
     function CreateInstance()   { return "BeeRewardClass"; }
     function GetShortName()     { return "BREW"; }
     function GetAPIVersion()    { return "1.5"; }
-    function GetUrl()           { return "https://gitlab.com/jottyfan/bee-reward/"; }
+    function GetUrl()           { return "https://github.com/Ox7C5/bee-reward"; }
     function MinVersionToLoad() { return MINCOMPATIBLE_SAVEGAME_VERSION; }
     function GetSettings();
 }
