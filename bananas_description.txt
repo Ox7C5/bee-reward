@@ -1,1 +1,3 @@
-BeeReward is a fork of Busy Bee. It continuously gives you new goals for transportation, and can give rewards in the form of money for achieving it. There is no ultimate goal to achieve.
+BeeReward2 is a fork of BeeReward which is a fork of  Busy Bee.
+It continuously gives you new goals for transportation, and can give rewards in the form of money for achieving it.
+There is no ultimate goal to achieve.

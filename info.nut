@@ -26,7 +26,7 @@ PROGRAM_NAME <- Syntax error, set by 'make bundle'.
 
 class BeeRewardInfo extends GSInfo {
     function GetAuthor()        { return "alberth, andythenorth, jottyfan, 0x7C5"; }
-    function GetName()          { return "Bee Reward"; } // Old: return PROGRAM_NAME;
+    function GetName()          { return "Bee Reward 2"; } // Old: return PROGRAM_NAME;
     function GetDescription()   { return "Make connection, transport cargo, receive reward"; }
     function GetVersion()       { return PROGRAM_VERSION + SAVEGAME_VERSION * 100000; }
     function GetDate()          { return PROGRAM_DATE; }
